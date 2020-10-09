@@ -1,0 +1,17 @@
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  labels:
+    app.kubernetes.io/name: "springkube-service"
+    app.kubernetes.io/version: "v1"
+  name: "springkube-service"
+spec:
+  ports:
+    - name: "http"
+      port: 8080
+      targetPort: 8080
+      nodePort: 30000
+  selector:
+    app.kubernetes.io/name: "springkube"
+    app.kubernetes.io/version: "1.0-SNAPSHOT"
+  type: "NodePort"
